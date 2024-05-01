@@ -16,6 +16,7 @@
             <scope>provided</scope>
         </dependency>
         
+        <!-- Jetty dependencies -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
