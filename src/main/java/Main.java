@@ -1,14 +1,19 @@
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
-public class Main {
-    public static void main(String[] args) throws Exception {
-        Server server = new Server(8080);
-        ServletContextHandler handler = new ServletContextHandler();
-        handler.addServlet(new ServletHolder(new HelloServlet()), "/hello");
-        server.setHandler(handler);
-        server.start();
-        server.join();
+@WebListener
+public class AppInitializer implements ServletContextListener {
+
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
+        // Perform initialization tasks here
+        System.out.println("Application initialized");
+    }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent sce) {
+        // Perform cleanup tasks here
+        System.out.println("Application destroyed");
     }
 }
